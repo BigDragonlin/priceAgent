@@ -10,4 +10,4 @@
 启动和停止步骤见 [前后端运行说明](BACKEND.md)。
 前端原有说明见 [frontend/README.md](frontend/README.md)。
 
-前端命令请先进入 frontend 目录执行。后端保留独立 Git 历史，详情见运行说明。
+前端命令请先进入 frontend 目录执行。前后端由根目录同一个 Git 仓库统一管理，详情见运行说明。

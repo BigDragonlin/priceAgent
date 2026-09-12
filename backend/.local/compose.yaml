@@ -1,0 +1,78 @@
+# 本机芋道后端：数据库、缓存和后台接口放在独立网络中。
+# 只有后台接口开放到本机 48080；数据库数据保存在本项目专用卷中。
+name: priceagent-local
+
+services:
+  mysql:
+    image: mysql:8.0
+    environment:
+      MYSQL_DATABASE: ruoyi-vue-pro
+      MYSQL_ROOT_PASSWORD: priceagent-local-2026
+      TZ: Asia/Shanghai
+    volumes:
+      - mysql-data:/var/lib/mysql
+      - ../sql/mysql/ruoyi-vue-pro.sql:/docker-entrypoint-initdb.d/01-init.sql:ro
+    healthcheck:
+      test: [CMD-SHELL, 'MYSQL_PWD=$$MYSQL_ROOT_PASSWORD mysql -h 127.0.0.1 -u root -D ruoyi-vue-pro -e "SELECT 1 FROM system_users LIMIT 1"']
+      interval: 5s
+      timeout: 5s
+      retries: 60
+
+  redis:
+    image: redis:7-alpine
+    volumes:
+      - redis-data:/data
+    healthcheck:
+      test: [CMD, redis-cli, ping]
+      interval: 5s
+      timeout: 3s
+      retries: 20
+
+  # 首次编译后端，Java 和 Maven 都在容器内，无需安装到电脑系统。
+  build:
+    image: maven:3.9-eclipse-temurin-17
+    profiles: [tools]
+    working_dir: /workspace
+    environment:
+      # 连接连续 30 秒没有数据就报错，避免默认等候半小时。
+      MAVEN_OPTS: -Xmx2g -Daether.connector.connectTimeout=10000 -Daether.connector.requestTimeout=30000
+    volumes:
+      - ../:/workspace
+      - maven-cache:/root/.m2
+      - ./maven-settings.xml:/tmp/maven-settings.xml:ro
+    command: [mvn, -B, -s, /tmp/maven-settings.xml, -T, '2', -pl, yudao-server, -am, install, '-Dmaven.test.skip=true']
+
+  # 使用编译好的程序提供登录、用户、菜单和基础管理接口。
+  backend:
+    env_file:
+      - ./quote-ai.env
+    image: maven:3.9-eclipse-temurin-17
+    working_dir: /app
+    ports:
+      - 127.0.0.1:48080:48080
+    environment:
+      TZ: Asia/Shanghai
+      SPRING_PROFILES_ACTIVE: local
+      SPRING_DATASOURCE_DYNAMIC_DATASOURCE_MASTER_URL: jdbc:mysql://mysql:3306/ruoyi-vue-pro?useSSL=false&serverTimezone=Asia/Shanghai&allowPublicKeyRetrieval=true&nullCatalogMeansCurrent=true&rewriteBatchedStatements=true
+      SPRING_DATASOURCE_DYNAMIC_DATASOURCE_MASTER_USERNAME: root
+      SPRING_DATASOURCE_DYNAMIC_DATASOURCE_MASTER_PASSWORD: priceagent-local-2026
+      SPRING_DATASOURCE_DYNAMIC_DATASOURCE_SLAVE_URL: jdbc:mysql://mysql:3306/ruoyi-vue-pro?useSSL=false&serverTimezone=Asia/Shanghai&allowPublicKeyRetrieval=true&nullCatalogMeansCurrent=true&rewriteBatchedStatements=true
+      SPRING_DATASOURCE_DYNAMIC_DATASOURCE_SLAVE_USERNAME: root
+      SPRING_DATASOURCE_DYNAMIC_DATASOURCE_SLAVE_PASSWORD: priceagent-local-2026
+      SPRING_DATA_REDIS_HOST: redis
+      YUDAO_SECURITY_MOCK_ENABLE: 'false'
+    volumes:
+      - ../yudao-server/target:/app:ro
+      - backend-files:/root
+    command: [java, -Xms256m, -Xmx1536m, -jar, /app/yudao-server.jar]
+    depends_on:
+      mysql:
+        condition: service_healthy
+      redis:
+        condition: service_healthy
+
+volumes:
+  mysql-data:
+  redis-data:
+  maven-cache:
+  backend-files:

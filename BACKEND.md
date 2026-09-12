@@ -42,6 +42,10 @@ docker compose -f .local/compose.yaml stop
 
 ## Git 与源码
 
-根目录 Git 管理前端与公共文档；backend 保留原来的独立 Git 历史，根 Git 忽略 backend，后端改动需在 backend 中查看与提交。此次仅整理文件夹，没有合并历史、暂存或提交。
+根目录 Git 统一管理 frontend、backend 和公共文档。backend 是普通源码目录，不再包含独立 .git 或外部仓库引用。后端改动在 priceAgent 根目录统一查看和提交。
+
+后端原 Git 历史备份位于根目录 `.local/git-backups/20260912-142907/backend.git`，不纳入提交。
+
+按用户明确要求，`backend/.local/compose.yaml`、`quote-ai.env` 等本机运行配置连同本地密码和真实 API 密钥纳入版本管理；备份、日志与编译产物仍忽略。
 
 后端的编译等操作见 [后端运行说明](backend/.local/README.md)。

@@ -51,7 +51,7 @@
 <!-- 心智模型、关键决策的为什么、从踩坑提炼的禁区 / 约定、外部资料引用索引;按 文档维护SOP 维护。详细问题 / 踩坑日志在 flow/踩坑记录.md -->
 
 ## 本项目范围与常用命令
-- priceAgent 总目录包含 `frontend/` 和 `backend/`。根 Git 管理前端和公共文档，backend 保留独立 Git 历史；总体 flow、docs 和 hook 留在根目录。
+- priceAgent 总目录包含 `frontend/` 和 `backend/`。根 Git 统一管理 frontend、backend 和公共文档，backend 不再是独立仓库；总体 flow、docs 和 hook 留在根目录。
 - 先进入 `frontend/` 再执行前端命令。`pnpm dev`：启动本地前端；`pnpm ts:check`：类型检查；`pnpm build:local`：本地构建。按实际改动选择验证，不默认运行自动修复命令。
 - 现有业务功能是否完成须另行验证，初始化协作文件不代表报价功能已实现。
 

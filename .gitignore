@@ -14,3 +14,13 @@ auto-*.d.ts
 output/
 .playwright-cli/
 
+
+# 本机运行配置按用户要求纳入，包括本地密码和真实 API 密钥。
+# 备份、日志、编译产物仍不纳入。
+!backend/.local/
+backend/.local/*
+!backend/.local/README.md
+!backend/.local/compose.yaml
+!backend/.local/maven-settings.xml
+!backend/.local/quote-ai.env
+!backend/.local/brand-jinmaoyuan.sql
