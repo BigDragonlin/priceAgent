@@ -14,5 +14,3 @@ auto-*.d.ts
 output/
 .playwright-cli/
 
-# 后端保留独立 Git 历史，请在 backend 中查看和提交其改动。
-/backend/
