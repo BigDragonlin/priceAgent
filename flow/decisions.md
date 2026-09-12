@@ -13,3 +13,8 @@
 ## 2026-09-12 · 前端仓库独立初始化
 - 依据 BACKEND.md 和根级 package.json，本次只在 priceAgent 创建一套协作结构。
 - 用户确认保留旧改动；既有需求与说明原地保留，通过 docs/README.md 索引。
+
+## 2026-09-12 · 前后端统一总目录
+- 根据用户纠正，priceAgent 下设 frontend 与 backend，而不是在 Documents 下并列两个项目。
+- 保留现有 Git 历史：根 Git 管理前端和公共文档，backend 保留独立 Git，不在目录迁移中合并版本历史。
+- flow、docs、协作入口和 hook 留在根级，前端运行命令改在 frontend 执行。

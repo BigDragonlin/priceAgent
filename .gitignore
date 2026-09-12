@@ -1,7 +1,7 @@
 node_modules
 # pnpm 本地下载缓存，不纳入版本管理
 .pnpm-store/
-# 本机后端源码、配置和运行文件
+# 本机运行配置和文件
 .local/
 .DS_Store
 dist
@@ -13,3 +13,6 @@ auto-*.d.ts
 .history
 output/
 .playwright-cli/
+
+# 后端保留独立 Git 历史，请在 backend 中查看和提交其改动。
+/backend/

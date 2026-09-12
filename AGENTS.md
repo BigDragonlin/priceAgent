@@ -6,8 +6,8 @@
 ## 目录地图(哪个文件夹放什么)
 - 根级 `flow/` — 唯一控制层(项目"怎么跑"):`charter.md` 目标 / `plan.md` 计划=契约 / `进展.md` 进展日志(顶部=交接棒)/ `decisions.md` 决策日志 / `踩坑记录.md` 问题与经验库 / `tasks/` 任务卡 / `规范/` 方法论详规
 - 根级 `docs/` — 集中内容层(项目"做出什么"):产品 / 架构 / `contracts/` 跨模块契约 / `modules/` 模块说明 / 评审和产出说明
-- `src/` — Vue 前端代码；`public/` — 静态资源；`package.json` — 开发和检查命令。
-- `BACKEND.md` — 相邻独立后端仓库的说明；`需求文档.md` — 报价助手的原始需求。
+- `frontend/src/` — Vue 前端代码；`frontend/public/` — 静态资源；`frontend/package.json` — 开发和检查命令；`backend/` — 后端源码。
+- `BACKEND.md` — 项目内前后端目录和运行说明；`需求文档.md` — 报价助手的原始需求。
 - **判据**:协调 / 推进总体项目的 → 根级 `flow/`;需要统一发现的知识和方案 → 根级 `docs/`;代码 → 对应子项目。默认不在子项目重复建 `flow/` 或 `docs/`
 
 ## 多子项目边界
@@ -51,8 +51,8 @@
 <!-- 心智模型、关键决策的为什么、从踩坑提炼的禁区 / 约定、外部资料引用索引;按 文档维护SOP 维护。详细问题 / 踩坑日志在 flow/踩坑记录.md -->
 
 ## 本项目范围与常用命令
-- 本仓库只管理 priceAgent 前端。相邻 `../priceAgent-backend/` 是独立后端仓库，不纳入本次初始化。
-- `pnpm dev`：启动本地前端；`pnpm ts:check`：类型检查；`pnpm build:local`：本地构建。按实际改动选择验证，不默认运行自动修复命令。
+- priceAgent 总目录包含 `frontend/` 和 `backend/`。根 Git 管理前端和公共文档，backend 保留独立 Git 历史；总体 flow、docs 和 hook 留在根目录。
+- 先进入 `frontend/` 再执行前端命令。`pnpm dev`：启动本地前端；`pnpm ts:check`：类型检查；`pnpm build:local`：本地构建。按实际改动选择验证，不默认运行自动修复命令。
 - 现有业务功能是否完成须另行验证，初始化协作文件不代表报价功能已实现。
 
 ## 用户明确约定（优先于流程模板）

@@ -13,6 +13,7 @@
 <!-- 示例: - frontend/README.md — 前端本地开发入口 -->
 
 - [原始需求](../需求文档.md) — 报价助手的目标。
-- [前后端目录说明](../BACKEND.md) — 独立后端仓库与本地运行说明。
-- [项目 README](../README.md) — 现有前端项目说明。
+- [前后端目录说明](../BACKEND.md) — 项目内前后端目录与本地运行说明。
+- [项目 README](../README.md) — 总目录入口。
+- [前端 README](../frontend/README.md) — 原有前端项目说明。
 - [项目目标](../flow/charter.md) — 本仓库范围与当前授权。
