@@ -1,0 +1,395 @@
+/* 报价工作台局部样式；沿用芋道主题变量，不影响其他业务页面。 */
+.quote-workbench {
+  --quote-green: #16634e;
+  --quote-soft: #edf6f1;
+  max-width: 1320px;
+  margin: 0 auto;
+  color: var(--el-text-color-primary);
+  font-size: 15px;
+  line-height: 1.6;
+}
+.quote-workbench * {
+  box-sizing: border-box;
+}
+.quote-workbench .quote-hero {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  padding: 22px 6px 30px;
+}
+.quote-workbench .eyebrow {
+  color: var(--quote-green);
+  letter-spacing: 2px;
+  font-size: 13px;
+  font-weight: 600;
+}
+.quote-workbench h1 {
+  margin: 8px 0;
+  font-size: 30px;
+  font-weight: 600;
+  letter-spacing: -0.6px;
+}
+.quote-workbench h2 {
+  font-size: 18px;
+  margin: 0;
+  font-weight: 600;
+}
+.quote-workbench p {
+  margin: 6px 0;
+}
+.quote-workbench small {
+  display: block;
+  font-size: 12px;
+  color: var(--el-text-color-secondary);
+}
+.quote-workbench .demo-label {
+  color: var(--quote-green);
+  background: var(--quote-soft);
+  border-radius: 6px;
+  padding: 8px 12px;
+  white-space: nowrap;
+  font-size: 12px;
+}
+.quote-workbench .workbench-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1.5fr) minmax(300px, 1fr);
+  gap: 22px;
+  align-items: start;
+}
+.quote-workbench .quote-panel {
+  background: var(--el-bg-color);
+  border: 1px solid var(--el-border-color-lighter);
+  border-radius: 12px;
+  padding: 26px;
+  margin-bottom: 22px;
+}
+.quote-workbench .section-heading {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  margin-bottom: 24px;
+}
+.quote-workbench .section-heading p,
+.quote-workbench .muted,
+.quote-workbench .quote-hero > div > p:last-child {
+  color: var(--el-text-color-secondary);
+  font-size: 13px;
+}
+.quote-workbench .step-number {
+  color: var(--quote-green);
+  background: var(--quote-soft);
+  width: 34px;
+  height: 34px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  font-size: 13px;
+  flex-shrink: 0;
+}
+.quote-workbench fieldset {
+  border: 0;
+  padding: 0;
+  margin: 0;
+  min-width: 0;
+}
+.quote-workbench label {
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+  font-size: 13px;
+  font-weight: 500;
+  min-width: 0;
+}
+.quote-workbench input,
+.quote-workbench select,
+.quote-workbench textarea {
+  width: 100%;
+  min-width: 0;
+  border: 1px solid var(--el-border-color);
+  border-radius: 6px;
+  padding: 11px 12px;
+  color: var(--el-text-color-primary);
+  background: var(--el-bg-color);
+  font: inherit;
+  font-size: 14px;
+}
+.quote-workbench input:focus-visible,
+.quote-workbench select:focus-visible,
+.quote-workbench textarea:focus-visible,
+.quote-workbench button:focus-visible,
+.quote-workbench summary:focus-visible {
+  outline: 2px solid var(--quote-green);
+  outline-offset: 3px;
+}
+.quote-workbench textarea {
+  resize: vertical;
+}
+.quote-workbench .item-row {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 110px 42px;
+  gap: 12px;
+  margin-bottom: 12px;
+  align-items: end;
+}
+.quote-workbench .field-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px 16px;
+  margin-top: 24px;
+}
+.quote-workbench .rule-note {
+  padding: 12px;
+  margin: 18px 0;
+  background: var(--el-fill-color-light);
+  border-radius: 6px;
+  font-size: 12px;
+}
+.quote-workbench button {
+  font: inherit;
+  cursor: pointer;
+}
+.quote-workbench button:disabled {
+  cursor: not-allowed;
+  opacity: 0.5;
+}
+.quote-workbench .text-button {
+  border: none;
+  padding: 8px 0;
+  background: transparent;
+  color: var(--quote-green);
+  font-size: 13px;
+}
+.quote-workbench .primary-button,
+.quote-workbench .secondary-button {
+  border-radius: 6px;
+  padding: 11px 18px;
+  font-size: 14px;
+  border: 1px solid var(--quote-green);
+}
+.quote-workbench .primary-button {
+  background: var(--quote-green);
+  color: #fff;
+}
+.quote-workbench .secondary-button {
+  background: var(--el-bg-color);
+  color: var(--quote-green);
+}
+.quote-workbench .actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: 24px;
+}
+.quote-workbench .suggestion-empty {
+  text-align: center;
+  padding: 30px 16px;
+  margin: 20px 0;
+  background: var(--el-fill-color-lighter);
+  border-radius: 8px;
+}
+.quote-workbench .quiet-symbol {
+  color: var(--quote-green);
+  font-size: 36px;
+}
+.quote-workbench .suggestion-box {
+  padding: 20px;
+  background: var(--quote-soft);
+  border-radius: 8px;
+  margin: 22px 0;
+  color: #204738;
+}
+.quote-workbench .suggestion-box > span {
+  font-size: 13px;
+}
+.quote-workbench .suggestion-box > p {
+  font-size: 13px;
+  margin-bottom: 18px;
+}
+.quote-workbench .suggestion-box .rate-change {
+  font-size: 28px;
+  font-weight: 600;
+  margin: 12px 0;
+}
+.quote-workbench .rate-change span {
+  color: #6c8c7d;
+  padding: 0 8px;
+}
+.quote-workbench .suggestion-box button {
+  display: block;
+  width: 100%;
+}
+.quote-workbench summary {
+  cursor: pointer;
+  font-size: 13px;
+  padding: 12px 0;
+}
+.quote-workbench pre {
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
+  font: inherit;
+  font-size: 12px;
+  background: var(--el-fill-color-light);
+  padding: 12px;
+}
+.quote-workbench .source-note {
+  border-top: 1px solid var(--el-border-color-lighter);
+  padding-top: 18px;
+  margin-top: 20px;
+  font-size: 12px;
+  color: var(--el-text-color-secondary);
+}
+.quote-workbench .source-note b {
+  color: var(--el-text-color-primary);
+  font-weight: 500;
+}
+.quote-workbench .pending-result {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 26px;
+}
+.quote-workbench .pending-result p {
+  font-size: 13px;
+  color: var(--el-text-color-secondary);
+}
+.quote-workbench .status {
+  margin-left: auto;
+  font-size: 12px;
+  border-radius: 5px;
+  padding: 5px 10px;
+  white-space: nowrap;
+}
+.quote-workbench .ok {
+  color: var(--quote-green);
+  background: var(--quote-soft);
+}
+.quote-workbench .conflict,
+.quote-workbench .error-box {
+  color: var(--el-color-danger);
+  background: var(--el-color-danger-light-9);
+}
+.quote-workbench .error-box {
+  border-radius: 8px;
+  padding: 16px;
+  margin-bottom: 20px;
+}
+.quote-workbench .result-summary {
+  display: flex;
+  justify-content: space-between;
+  gap: 30px;
+  padding: 0 0 24px;
+}
+.quote-workbench .result-summary span {
+  font-size: 13px;
+}
+.quote-workbench .result-summary strong {
+  display: block;
+  font-size: 36px;
+  color: var(--quote-green);
+  font-weight: 600;
+  font-variant-numeric: tabular-nums;
+}
+.quote-workbench .result-summary b {
+  display: block;
+  font-size: 24px;
+  font-weight: 500;
+}
+.quote-workbench .table-scroll {
+  overflow: auto;
+}
+.quote-workbench table {
+  width: 100%;
+  border-collapse: collapse;
+  white-space: nowrap;
+  font-size: 14px;
+}
+.quote-workbench th {
+  font-weight: 500;
+  background: var(--el-fill-color-light);
+}
+.quote-workbench th,
+.quote-workbench td {
+  padding: 14px 16px;
+  text-align: right;
+  border-bottom: 1px solid var(--el-border-color-lighter);
+  font-variant-numeric: tabular-nums;
+}
+.quote-workbench th:first-child,
+.quote-workbench td:first-child {
+  text-align: left;
+}
+.quote-workbench .totals {
+  margin: 20px 0 12px auto;
+  max-width: 340px;
+  font-size: 13px;
+}
+.quote-workbench .totals div {
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
+  padding: 4px 0;
+}
+.quote-workbench dd {
+  margin: 0;
+  font-variant-numeric: tabular-nums;
+}
+.quote-workbench .calculation-details {
+  border-top: 1px solid var(--el-border-color-lighter);
+}
+.quote-workbench .calculation-details li {
+  padding: 12px 0;
+  font-size: 13px;
+}
+.quote-workbench .calculation-details li p {
+  color: var(--el-text-color-secondary);
+}
+html.dark .quote-workbench {
+  --quote-green: #83cfad;
+  --quote-soft: #203c32;
+}
+html.dark .quote-workbench .primary-button {
+  color: #123325;
+}
+html.dark .quote-workbench .suggestion-box {
+  color: #c7e8d7;
+}
+@media (max-width: 1000px) {
+  .quote-workbench .workbench-grid {
+    grid-template-columns: 1fr;
+    gap: 0;
+  }
+}
+@media (max-width: 600px) {
+  .quote-workbench .quote-hero {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 10px;
+  }
+  .quote-workbench h1 {
+    font-size: 24px;
+  }
+  .quote-workbench .quote-panel {
+    padding: 18px;
+  }
+  .quote-workbench .field-grid {
+    grid-template-columns: 1fr;
+  }
+  .quote-workbench .item-row {
+    grid-template-columns: minmax(0, 1fr) 85px;
+  }
+  .quote-workbench .item-row .remove {
+    grid-column: 2;
+  }
+  .quote-workbench .result-summary {
+    flex-direction: column;
+    gap: 15px;
+  }
+  .quote-workbench .result-summary strong {
+    font-size: 30px;
+  }
+  .quote-workbench .status {
+    white-space: normal;
+  }
+}

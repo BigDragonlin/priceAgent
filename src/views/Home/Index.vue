@@ -29,6 +29,9 @@ const { push } = useRouter()
     <el-card shadow="never" class="company-shortcuts">
       <template #header><span>常用功能</span></template>
       <div class="company-shortcuts__links">
+        <el-button size="large" type="primary" @click="push('/quote/workbench')">
+          <Icon icon="ep:document" class="mr-8px" />报价工作台
+        </el-button>
         <el-button size="large" @click="push('/user/profile')">
           <Icon icon="ep:user" class="mr-8px" />个人中心
         </el-button>

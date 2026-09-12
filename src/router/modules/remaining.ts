@@ -33,6 +33,22 @@ const { t } = useI18n()
  }
  **/
 const remainingRouter: AppRouteRecordRaw[] = [
+  // 报价工作台复用现有登录保护，静态入口不依赖手工修改数据库菜单。
+  {
+    path: '/quote',
+    component: Layout,
+    name: 'QuoteRoot',
+    redirect: '/quote/workbench',
+    meta: { title: '报价助手', icon: 'ep:document' },
+    children: [
+      {
+        path: 'workbench',
+        name: 'QuoteWorkbench',
+        component: () => import('@/views/quote/Workbench.vue'),
+        meta: { title: '报价工作台', icon: 'ep:document', noCache: true }
+      }
+    ]
+  },
   {
     path: '/redirect',
     component: Layout,
