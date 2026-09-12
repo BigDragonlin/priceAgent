@@ -54,6 +54,10 @@ export const getLoginForm = () => {
   const loginForm: LoginFormType = wsCache.get(CACHE_KEY.LoginForm)
   if (loginForm) {
     loginForm.password = decrypt(loginForm.password) as string
+    // 企业改名后，旧浏览器记住的租户名称也要同步，避免登录仍使用模板名称。
+    if (loginForm.tenantName === '芋道源码') {
+      loginForm.tenantName = import.meta.env.VITE_APP_DEFAULT_LOGIN_TENANT
+    }
   }
   return loginForm
 }

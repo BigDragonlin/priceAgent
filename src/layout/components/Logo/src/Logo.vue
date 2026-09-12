@@ -2,6 +2,7 @@
 import { computed, onMounted, ref, unref, watch } from 'vue'
 import { useAppStore } from '@/store/modules/app'
 import { useDesign } from '@/hooks/web/useDesign'
+import { companyLogo, companyName } from '@/config/brand'
 import { getLayoutRenderMode, isHeaderNavLayout } from '@/utils/layout'
 
 defineOptions({ name: 'Logo' })
@@ -72,8 +73,9 @@ watch(
       to="/"
     >
       <img
-        class="h-[calc(var(--logo-height)-10px)] w-[calc(var(--logo-height)-10px)]"
-        src="@/assets/imgs/logo.png"
+        class="h-[calc(var(--logo-height)-10px)] w-[calc(var(--logo-height)-10px)] shrink-0 rounded-6px object-contain"
+        :src="companyLogo"
+        :alt="`${companyName} Logo`"
       />
       <div
         v-if="show"

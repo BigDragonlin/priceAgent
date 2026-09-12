@@ -171,7 +171,7 @@
       />
       <div class="flex flex-col">
         <el-text>手机扫码预览</el-text>
-        <Qrcode :text="previewUrl" logo="/logo.gif" />
+        <Qrcode :text="previewUrl" :logo="companyLogo" />
       </div>
     </div>
   </Dialog>
@@ -185,6 +185,7 @@ export default {
 }
 </script>
 <script lang="ts" setup>
+import { companyLogo } from '@/config/brand'
 import draggable from 'vuedraggable'
 import ComponentLibrary from './components/ComponentLibrary.vue'
 import { cloneDeep, includes } from 'lodash-es'

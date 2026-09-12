@@ -5,7 +5,7 @@ import { useNow } from '@/hooks/web/useNow'
 import { useDesign } from '@/hooks/web/useDesign'
 import { useTagsViewStore } from '@/store/modules/tagsView'
 import { useUserStore } from '@/store/modules/user'
-import avatarImg from '@/assets/imgs/avatar.gif'
+import { companyLogo as avatarImg } from '@/config/brand'
 
 const tagsViewStore = useTagsViewStore()
 

@@ -1,4 +1,8 @@
 node_modules
+# pnpm 本地下载缓存，不纳入版本管理
+.pnpm-store/
+# 本机后端源码、配置和运行文件
+.local/
 .DS_Store
 dist
 dist-ssr

@@ -1,7 +1,7 @@
 <script lang="ts" setup>
 import { ElMessageBox } from 'element-plus'
 
-import avatarImg from '@/assets/imgs/avatar.gif'
+import { companyLogo as avatarImg } from '@/config/brand'
 import { useDesign } from '@/hooks/web/useDesign'
 import { useTagsViewStore } from '@/store/modules/tagsView'
 import { useUserStore } from '@/store/modules/user'
@@ -49,9 +49,6 @@ const loginOut = async () => {
 const toProfile = async () => {
   push('/user/profile')
 }
-const toDocument = () => {
-  window.open('https://doc.iocoder.cn/')
-}
 </script>
 
 <template>
@@ -67,10 +64,6 @@ const toDocument = () => {
         <ElDropdownItem>
           <Icon icon="ep:tools" />
           <div @click="toProfile">{{ t('common.profile') }}</div>
-        </ElDropdownItem>
-        <ElDropdownItem>
-          <Icon icon="ep:menu" />
-          <div @click="toDocument">{{ t('common.document') }}</div>
         </ElDropdownItem>
         <ElDropdownItem divided>
           <Icon icon="ep:lock" />

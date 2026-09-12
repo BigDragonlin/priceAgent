@@ -9,7 +9,11 @@
       >
         <!-- 左上角的 logo + 系统标题 -->
         <div class="relative flex items-center text-white">
-          <img alt="" class="mr-10px h-48px w-48px" src="@/assets/imgs/logo.png" />
+          <img
+            :alt="`${companyName} Logo`"
+            class="mr-10px h-48px w-48px rounded-8px object-contain"
+            :src="companyLogo"
+          />
           <span class="text-20px font-bold">{{ underlineToHump(appStore.getTitle) }}</span>
         </div>
         <!-- 左边的背景图 + 欢迎语 -->
@@ -19,7 +23,12 @@
             enter-active-class="animate__animated animate__bounceInLeft"
             tag="div"
           >
-            <img key="1" alt="" class="w-350px" src="@/assets/svgs/login-box-bg.svg" />
+            <img
+              key="1"
+              :alt="`${companyName} Logo`"
+              class="mb-24px w-280px rounded-24px object-contain"
+              :src="companyLogo"
+            />
             <div key="2" class="text-3xl text-white">{{ t('login.welcome') }}</div>
             <div key="3" class="mt-5 text-14px font-normal text-white">
               {{ t('login.message') }}
@@ -35,7 +44,11 @@
           class="flex items-center justify-between text-white at-2xl:justify-end at-xl:justify-end"
         >
           <div class="flex items-center at-2xl:hidden at-xl:hidden">
-            <img alt="" class="mr-10px h-48px w-48px" src="@/assets/imgs/logo.png" />
+            <img
+              :alt="`${companyName} Logo`"
+              class="mr-10px h-48px w-48px rounded-8px object-contain"
+              :src="companyLogo"
+            />
             <span class="text-20px font-bold">{{ underlineToHump(appStore.getTitle) }}</span>
           </div>
           <div class="flex items-center justify-end space-x-10px h-48px">
@@ -151,6 +164,7 @@
 </template>
 
 <script lang="ts" setup>
+import { companyLogo, companyName } from '@/config/brand'
 import { underlineToHump } from '@/utils'
 
 import { ElLoading } from 'element-plus'
@@ -200,7 +214,7 @@ const loginData = reactive({
   captchaEnable: import.meta.env.VITE_APP_CAPTCHA_ENABLE !== 'false',
   tenantEnable: import.meta.env.VITE_APP_TENANT_ENABLE !== 'false',
   loginForm: {
-    tenantName: '芋道源码',
+    tenantName: import.meta.env.VITE_APP_DEFAULT_LOGIN_TENANT,
     username: 'admin',
     password: 'admin123',
     captchaVerification: '',
