@@ -18,3 +18,7 @@
 - 根据用户纠正，priceAgent 下设 frontend 与 backend，而不是在 Documents 下并列两个项目。
 - 保留现有 Git 历史：根 Git 管理前端和公共文档，backend 保留独立 Git，不在目录迁移中合并版本历史。
 - flow、docs、协作入口和 hook 留在根级，前端运行命令改在 frontend 执行。
+
+## 2026-09-12 · 前后端统一 Git（取代此前独立仓库决定）
+- 用户明确要求根项目包含后端，不保留 backend 独立 Git；原 Git 元数据备份在 `.local/git-backups/20260912-142907/`。
+- 用户明确确认所有密码和真实 API 密钥纳入。仅放行指定本机运行配置，仍排除备份、日志和编译产物。
